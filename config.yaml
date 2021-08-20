@@ -1,0 +1,15 @@
+active_artwork_file_path: 'active_artwork.jpg'
+image_directory: 'images'
+lower_limit_num_images: 200
+
+kiosk:
+  path: 'frame.png'
+  inner_width: 1710
+  inner_height: 870
+
+pirsensor:
+  GPIO_mode: 'BOARD'
+  GPIO_pinout: 7
+  loop_sleep_sec: 0.1
+  screensaver_after_sec: 600
+
