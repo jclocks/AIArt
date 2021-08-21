@@ -3,7 +3,7 @@
 This guide goes through all the steps to build your own AI art installation, using a button to 
 change the AI artwork displayed on a screen. The main components used in this guide are:
  
-* Nvidia Jetson Xavier NX (GPU-accelerated single-board computer)
+* Raspberry Pi 3B+ or 4.
 * Screen with HDMI support
 * Button to change artwork
 * Passive infrared sensor to reduce risk of screen burn-in
