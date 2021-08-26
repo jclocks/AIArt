@@ -5,8 +5,7 @@ change the AI artwork displayed on a screen. The main components used in this gu
  
 * Raspberry Pi 3B+ or 4.
 * Screen with HDMI support
-* Button to change artwork
-* Passive infrared sensor to reduce risk of screen burn-in
+* (Optional) Passive infrared sensor to reduce risk of screen burn-in
 
 It includes how to set up the computer to run an art kiosk (with code), how to build and assemble the control 
 box, how to integrate the button and PIR sensor etc.
