@@ -54,75 +54,6 @@ or
         6. [PIR sensor](#pir-sensor)
 7. [Final AI art installation](#final-ai-art-installation)
 
-# Prepare the computer (Nvidia Jetson Xavier NX Dev Kit)
-The Nvidia Jetson Xavier NX Development Kit 
-([https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-xavier-nx/](https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-xavier-nx/)) is a single-board computer
-with an integrated Nvidia Jetson Xavier NX module ([https://developer.nvidia.com/embedded/jetson-xavier-nx](https://developer.nvidia.com/embedded/jetson-xavier-nx)). It's 
-developed by Nvidia for running computationally demanding tasks on edge. Similar to the Raspberry Pi, it has 40 GPIO pins that you can
-interact with.
-
-The development kit (version US/JP/TW) includes:
-
-* x1 Nvidia Jetson Xavier NX
-* x1 19.0V/2.37A power adapter
-* x2 Power cables:
-    * Plug type I -> C5
-    * Plug type B -> C5
-* Quick start / Support guide
-
-![xavier_1](./tutorial_images/setup_computer/xavier_1.jpg)
-
-![xavier_2](./tutorial_images/setup_computer/xavier_2.jpg)
-
-## Install operating system
-As the Raspberry Pi, Jetson Xavier is using a micro-SD card as its hard drive. As far as I know, there's only one 
-supported OS image (Ubuntu) provided by Nvidia.
-
-To install the OS, you'll need to use a second computer. 
-
-Start of by downloading the OS image: [https://developer.nvidia.com/jetson-nx-developer-kit-sd-card-image](https://developer.nvidia.com/jetson-nx-developer-kit-sd-card-image).
-To be able to download it, you need to sign up for a `NVIDIA Developer Program Membership`. It's free and quite useful 
-as you'll get access to the Nvidia Developer forum. 
-
-After you've downloaded it, unzip it. 
-
-To flash the OS image to the micro-SD card, start of by inserting the micro-SD card into the second computer and list 
-the available disks. Find the disk name of the micro-SD card you just inserted. In my case, it's `/dev/disk2`:
-
-![xavier_4](./tutorial_images/setup_computer/xavier_4.svg)
-
-When you've found the name of the micro-SD card, unmount it.
-
-![xavier_5](./tutorial_images/setup_computer/xavier_5.svg)
-
-Now, change your current directory to where you downloaded and un-zipped the OS image.
-
-![xavier_6](./tutorial_images/setup_computer/xavier_6.svg)
-
-To flash the micro-SD card with the OS image, run the command below. Replace `/dev/disk2` with the disk name of your 
-micro-SD card and replace `sd-blob.img` with the name of the un-zipped image you downloaded. I've sped up the 
-animation, flashing the card usually takes quite a long time (it took ~55 min @ ~4.6 MB/s for me).
-
-![xavier_7](./tutorial_images/setup_computer/xavier_7.svg)
-
-When you're done flashing the micro-SD card with the image, you're ready to boot up the Jetson! Remove the SD-card 
-from the second computer and insert it into the Jetson computer. The SD-slot is found under the Xavier NX Module.
-
-![xavier_8](./tutorial_images/setup_computer/xavier_8.jpg)
-
-There's no power button, it will boot when you plug in the power cable. After booting and filling in the initial 
-system configuration, you should see the Ubuntu desktop.
-
-![xavier_9](./tutorial_images/setup_computer/xavier_9.gif)
-
-If you get stuck during boot-up with an output as below, try to reboot the machine.
-```bash
-[ *** ] (1 of 2) A start job is running for End-user configuration after initial OEM installation...
-```
-
-Full installation guide from Nvidia can be found here: 
-[https://developer.nvidia.com/embedded/learn/get-started-jetson-xavier-nx-devkit](https://developer.nvidia.com/embedded/learn/get-started-jetson-xavier-nx-devkit)
-
 ## Install base requirements
 Update and upgrade apt-get
 
@@ -200,36 +131,6 @@ After uninstalling `gnome-screensaver` and installing `xscreensaver`, it was add
 
 
 Full installation guide: [https://askubuntu.com/questions/292995/configure-screensaver-in-ubuntu/293014#293014](https://askubuntu.com/questions/292995/configure-screensaver-in-ubuntu/293014#293014)
-
-## Install Jetson stats (optional)
-[Jetson stats](https://github.com/rbonghi/jetson_stats) is a really useful open-source package to monitor and control 
-the Jetson. It enables you to track CPU/GPU/Memory usage, check temperatures, increase the swap memory etc.
-
-To install Jetson stats:
-
-```bash
-sudo -H pip install -U jetson-stats
-```
-
-Reboot your machine:
-
-```bash
-sudo reboot
-```
-
-Activate the virtual environment again after reboot:
-
-```bash
-source ~/venvs/artkiosk/bin/activate
-```
-
-To check CPU/GPU/Memory usage etc:
-
-```bash
-jtop
-```
-
-Full list of commands can be found here: [https://github.com/rbonghi/jetson_stats](https://github.com/rbonghi/jetson_stats)
 
 # Install art kiosk
 We're now ready to install the art kiosk on the computer! 
