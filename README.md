@@ -8,15 +8,9 @@ change the AI artwork displayed on a screen. The main components used in this gu
 * (Optional) Passive infrared sensor to reduce risk of screen burn-in
 
 It includes how to set up the computer to run an art kiosk (with code), how to build and assemble the control 
-box, how to integrate the button and PIR sensor etc.
+box and PIR sensor etc.
 
-If you have any questions, feel free to contact me on LinkedIn: [https://www.linkedin.com/in/max-fischer-92997281/](https://www.linkedin.com/in/max-fischer-92997281/) 
 
-or
-
-![contact](./tutorial_images/contact.png)
-
-![final_gif_1](./tutorial_images/final_ai_installation/final_gif.gif)
 
 # Table of content
 1. [Prepare the computer (Nvidia Jetson Xavier NX Dev Kit)](#prepare-the-computer-(nvidia-jetson-xavier-nx-dev-kit))
