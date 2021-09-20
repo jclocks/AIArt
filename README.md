@@ -7,8 +7,7 @@ change the AI artwork displayed on a screen. The main components used in this gu
 * Screen with HDMI support
 * (Optional) Passive infrared sensor to reduce risk of screen burn-in
 
-It includes how to set up the computer to run an art kiosk (with code), how to build and assemble the control 
-box and PIR sensor etc.
+It includes how to set up the computer to run an art kiosk (with code) and PIR sensor etc.
 
 
 
