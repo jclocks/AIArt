@@ -1,5 +1,3 @@
-![main_gif](./tutorial_images/main_gif.gif)
-
 This guide goes through all the steps to build your own AI art installation, using a button to 
 change the AI artwork displayed on a screen. The main components used in this guide are:
  
@@ -132,8 +130,7 @@ image directory, GPIO pinouts used etc).
 
 | **Process/Class**              | **File**                   | **Description**                                                                                                                                                                                                                                                                                                                                                                                      |
 |--------------------------------|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Kiosk**                      | kiosk/kiosk.py             |The `Kiosk` process handles all the GUI: toggling (\<F11>) and ending (\<Escape>) fullscreen, listens to change of the active artwork to be displayed etc.                                                                                                                                                                                                                                            |
-| **ArtButton**                  | kiosk/artbutton.py         |The `ArtButton` process listens to a GPIO pinout connected to a button. When the button is pushed and the GPIO is triggered, it replaces the active artwork file with a random image sampled from the image directory.                                                                                                   |
+| **Kiosk**                      | kiosk/kiosk.py             |The `Kiosk` process handles all the GUI: toggling (\<F11>) and ending (\<Escape>) fullscreen, listens to change of the active artwork to be displayed etc.                                                                                                                                                                                                                                                                                                                                          
 | **PIRSensorScreensaver**       | kiosk/pirsensorscreensaver |The `PIRSensorScreensaver` process listens to a GPIO pinout connected to a PIR sensor. When no motion has triggered the PIR sensor within a predefined threshold of seconds, the computer's screensaver is activated. When motion is detected, the screensaver is deactivated.                                              |
 | **ArtEventHandler**            | kiosk/art_event_handler.py             |The `ArtEventHandler` process is listening to deleted items in the image directory. When the button is clicked and an image is deleted (i.e. moved to replace the active artwork file, active_artwork.jpg), this process checks how many images that are left in the image directory. If the number of images falls are below a predefined threshold, a new process (function) is spawned, generating a new set of images. You need to update this class to generate the images. |
 
@@ -148,9 +145,6 @@ The class `ArtEventHandler` found in the file `kiosk/arteventhandler.py` is an e
 
 ## main.py
 If you have updated `ArtEventHandler's` constructor with new arguments, you need to update the initialization of `ArtEventHandler` in the function `start_art_generator` found in `main.py`.
-
-# Build the control box
-To get a nice looking installation with as few visible cables as possible, a control box was built to encapsulate the Nvidia computer, power adapters, Samsung One Connect box etc.
 
 ## Hand-cut parts
 The control box was build using 12mm (0.472") MDF. A vertical panel saw was used to cut down the MDF into smaller pieces. A table saw was used to cut out the final pieces.
@@ -468,79 +462,13 @@ After the paint had dried, everything was reassembled.
 
 ![painting_6](./tutorial_images/build_control_box/painting_6.jpg)
 
-# Build the button box
-A modified black plastic enclosure box was used as a button box. To integrate the 
-button, the vertical and horizontal center was first measured and pre-drilled. Then, 
-a hole with the diameter of the button was drilled.
-
-![button_box_1](./tutorial_images/build_button_box/button_box_1.jpg)
-
-![button_box_2](./tutorial_images/build_button_box/button_box_2.jpg)
-
-![button_box_3](./tutorial_images/build_button_box/button_box_3.jpg)
-
-![button_box_4](./tutorial_images/build_button_box/button_box_4.jpg)
-
-![button_box_5](./tutorial_images/build_button_box/button_box_5.jpg)
-
-As the button box will be located between the control box and the screen, the two 
-button cables and the One Connect cable (bringing electricity and HDMI to the screen) 
-will enter the button box at the bottom. The One Connect cable will also exit 
-the button box at the top (continuing to the TV). Two cable slots were therefore extracted at the top
-and the bottom, using a Japanese hand saw/Dozuki saw. The slots were then smoothed
-by manual sanding.
-
-![button_box_6](./tutorial_images/build_button_box/button_box_6.jpg)
-
-![button_box_7](./tutorial_images/build_button_box/button_box_7.jpg)
-
-![button_box_8](./tutorial_images/build_button_box/button_box_8.jpg)
-
-The screws keeping the enclosure box together were colored black using an aerosol varnish paint. A tip
-when painting screws is to stick them into a piece of styrofoam.
-
-![button_box_9](./tutorial_images/build_button_box/button_box_9.jpg)
-
-![button_box_10](./tutorial_images/build_button_box/button_box_10.jpg)
-
 # Assemble art installation
-The art installation was now ready to be assembled and attached to the wall. A cross line laser was used to vertically align the screen, button box and control box. 
+The art installation was now ready to be assembled and attached to the wall. A cross line laser was used to vertically align the screen. 
 
 ## Screen
 The screen (Samsung The Frame 32" 2020) was wall-mounted following the instructions included when buying the screen.
 
 ![assembly_1](./tutorial_images/assemble_art_installation/assembly_1.jpg)
-
-## Button box
-Two screw holes were drilled in the bottom plate of the button box. Double-coated adhesive tape was also attached
-to the back side of the bottom plate for further support. The button box was then aligned using the laser and
-attached to the wall using two wall plugs, the two screws and the double-coated adhesive tape.
-
-![assembly_3](./tutorial_images/assemble_art_installation/assembly_3.jpg)
-
-![assembly_6](./tutorial_images/assemble_art_installation/assembly_6.jpg)
-
-![assembly_4](./tutorial_images/assemble_art_installation/assembly_4.jpg)
-
-![assembly_5](./tutorial_images/assemble_art_installation/assembly_5.jpg)
-
-![assembly_7](./tutorial_images/assemble_art_installation/assembly_7.jpg)
-
-![assembly_8](./tutorial_images/assemble_art_installation/assembly_8.jpg)
-
-![assembly_9](./tutorial_images/assemble_art_installation/assembly_9.jpg)
-
-## Control box
-The control box was attached to the wall using wall plug and two screws. To be able to outline the screw holes, all the electronics were temporarily placed in the control box and two screw holes were outlined and drilled. The HDMI/One Connect
-cable were then inserted into the cable slot and the control box was attached to the wall. 
-
-![assembly_10](./tutorial_images/assemble_art_installation/assembly_10.jpg)
-
-![assembly_11](./tutorial_images/assemble_art_installation/assembly_11.jpg)
-
-![assembly_12](./tutorial_images/assemble_art_installation/assembly_12.jpg)
-
-![assembly_13](./tutorial_images/assemble_art_installation/assembly_13.jpg)
 
 ## Electronic components
 
@@ -582,68 +510,6 @@ a power strip.
 
 ![assembly_22](./tutorial_images/assemble_art_installation/assembly_22.jpg)
 
-### Samsung One Connect box
-
-The Samsung One Connect box was then attached in the left bottom corner using
-velcro tape. Some margin was left below and to the left of the One Connect box for the power cord and for the PIR sensor cables. Also, the backside of the One Connect Box was cleaned using denatured alcohol before attaching the velcro tape. 
-
-![assembly_23](./tutorial_images/assemble_art_installation/assembly_23.jpg)
-
-![assembly_24](./tutorial_images/assemble_art_installation/assembly_24.jpg)
-
-The screen's power cord (IEC C7 coupler) was inserted into the One Connect 
-Box. It was then aligned, measured and cut at an appropriate length to reach 
-inside the junction box. The wire stripper was used to remove the jacket/insulation of the power cord, as well as the wires inside. The C7 cable was 
-then inserted into the junction box and connected to the splicing connectors. 
-The ground was left out as the C7 coupler is ungrounded.
-
-![assembly_26](./tutorial_images/assemble_art_installation/assembly_26.jpg)
-
-![assembly_25](./tutorial_images/assemble_art_installation/assembly_25.jpg)
-
-![assembly_27](./tutorial_images/assemble_art_installation/assembly_27.jpg)
-
-### Nvidia Jetson's power adapter
-
-The power adapter to the Nvidia Jetson Xavier NX was attached in the top left 
-corner using velcro tape. The power cord (IEC C5 coupler) was inserted 
-into the power adapter. It was then aligned, measured and cut at an appropriate 
-length to reach inside the junction box. The wire stripper was used to remove 
-the jacket/insulation of the power cord, as well as the wires inside. The C5 
-cable was then inserted into the junction box and connected to the splicing 
-connectors.
-
-![assembly_28](./tutorial_images/assemble_art_installation/assembly_28.jpg)
-
-![assembly_29](./tutorial_images/assemble_art_installation/assembly_29.jpg)
-
-![assembly_30](./tutorial_images/assemble_art_installation/assembly_30.jpg)
-
-![assembly_31](./tutorial_images/assemble_art_installation/assembly_31.jpg)
-
-Before closing the junction box, cable ties were tightened around each cable 
-going into the junction box as strain reliefs.
-
-![assembly_32](./tutorial_images/assemble_art_installation/assembly_32.jpg)
-
-![assembly_55](./tutorial_images/assemble_art_installation/assembly_55.jpg)
-
-### Nvidia Jetson
-
-To attach the Nvidia Jetson, two pieces of galvanised band was cut out and wrapped 
-in insulating tape. The computer was then attached in the top right corner 
-using 4 small screws and washers.
-
-![assembly_56](./tutorial_images/assemble_art_installation/assembly_56.jpg)
-
-![assembly_57](./tutorial_images/assemble_art_installation/assembly_57.jpg)
-
-![assembly_58](./tutorial_images/assemble_art_installation/assembly_58.jpg)
-
-![assembly_33](./tutorial_images/assemble_art_installation/assembly_33.jpg)
-
-![assembly_34](./tutorial_images/assemble_art_installation/assembly_34.jpg)
-
 ### Connect cables
 
 The HDMI, the One Connect Cable and the Xavier NX power cable were connected. 
@@ -652,68 +518,6 @@ Cable ties were used to structure the cables.
 ![assembly_35](./tutorial_images/assemble_art_installation/assembly_35.jpg)
 
 ![assembly_36](./tutorial_images/assemble_art_installation/assembly_36.jpg)
-
-### Button
-
-The button changing the artwork was implemented as a pull-up resistor. When the button is "off" (i.e. not pushed), a small current will flow from the positive 3.3v, through the resistor and into the GPIO pin, leading to the GPIO pin being HIGH (1). On the other hand, when the button is pushed, the current will flow from the positive 3.3v, through the resistor, via the button and into ground (GND). This will lead to the GPIO pin being LOW (0). This shift in HIGH/LOW on the GPIO pin is registered in the code and is used to change the artwork on the screen. The schema for the pull-up resistor can be found below.
-
-![pull_up_resistor](./tutorial_images/assemble_art_installation/pull-up_resistor.png)
-
-Two cables were measured and soldered to the button. The cables were then 
-inserted into the control box via the same cable slot as the One Connect cable. 
-Make sure that you have enough cable to reach to the Nvidia Jetson computer.
-
-![assembly_37](./tutorial_images/assemble_art_installation/assembly_37.jpg)
-
-The end of a female jumping wire were then soldered to the end of the cable 
-connecting to the ground (for being able to unplug the cable easily). Before 
-soldering the two cables together, one of the cables were passed through a 
-shrinking tube. After the cables were soldered together, a blow torch was used 
-to shrink the tube around the soldering.
-
-![assembly_38](./tutorial_images/assemble_art_installation/assembly_38.jpg)
-
-A 1kΩ resistor and a female jumping wire were soldered to the other button 
-cable. Finally, another female jumping cable were soldered to the other side of 
-the resistor.
-
-![assembly_39](./tutorial_images/assemble_art_installation/assembly_39.jpg)
-
-![assembly_40](./tutorial_images/assemble_art_installation/assembly_40.jpg)
-
-![assembly_41](./tutorial_images/assemble_art_installation/assembly_41.jpg)
-
-![assembly_42](./tutorial_images/assemble_art_installation/assembly_42.jpg)
-
-The jumping wires were then connected to the following Nvidia Jetson GPIOs:
-
-* Blue: Ground (pin 14)
-* Red: 3.3v (pin 17)
-* Green: GPIO (pin 15)
-
-![button_pinout](./tutorial_images/assemble_art_installation/button_pinout.png)
-
-![assembly_43](./tutorial_images/assemble_art_installation/assembly_43.jpg)
-
-The Samsung One Connect cable were finally inserted through the button box and the button box's top plate was attached.
-
-![assembly_44](./tutorial_images/assemble_art_installation/assembly_44.jpg)
-
-![assembly_45](./tutorial_images/assemble_art_installation/assembly_45.jpg)
-
-A cable channel was attached to the wall between the button box and the control box using double-coated adhesive tape, fitting the button cables and the One Connect cable. Before it was painted, the cable channel was manually sanded to make a better grip for the color. A primer was then added, followed by two layers of wall paint.
-
-![assembly_60](./tutorial_images/assemble_art_installation/assembly_60.jpg)
-
-![assembly_61](./tutorial_images/assemble_art_installation/assembly_61.jpg)
-
-![assembly_62](./tutorial_images/assemble_art_installation/assembly_62.jpg)
-
-![assembly_63](./tutorial_images/assemble_art_installation/assembly_63.jpg)
-
-![assembly_64](./tutorial_images/assemble_art_installation/assembly_64.jpg)
-
-![assembly_65](./tutorial_images/assemble_art_installation/assembly_65.jpg)
 
 ### PIR sensor
 
