@@ -10,7 +10,7 @@ It includes how to set up the computer to run an art kiosk (with code) and PIR s
 
 
 # Table of content
-1. [Prepare the computer (Nvidia Jetson Xavier NX Dev Kit)](#prepare-the-computer-(nvidia-jetson-xavier-nx-dev-kit))
+1. [Prepare the computer]
     1. [Install operating system](#install-operating-system)
     2. [Install base requirements](#install-base-requirements)
 2. [Install art kiosk](#install-art-kiosk)
