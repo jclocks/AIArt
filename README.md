@@ -1,4 +1,4 @@
-This guide goes through all the steps to build your own AI art installation, using a button to 
+This guide goes through all the steps to build your own AI art installation, setting a timer to
 change the AI artwork displayed on a screen. The main components used in this guide are:
  
 * Raspberry Pi 3B+ or 4.
