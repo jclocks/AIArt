@@ -1,3 +1,6 @@
+# Introduction
+The purpose of this project is to build an AI art installation that uses machine learning to generate it's own art and display it to showcase.
+## Summary
 This guide goes through all the steps to build your own AI art installation, setting a timer to
 change the AI artwork displayed on a screen. The main components used in this guide are:
  
