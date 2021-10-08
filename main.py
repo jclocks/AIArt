@@ -7,37 +7,6 @@ from watchdog.observers import Observer
 from kiosk.art_event_handler import ArtEventHandler
 from kiosk.pir_sensor_screensaver import PIRSensorScreensaver
 
-
-def start_artbutton(active_artwork_file_path: str,
-                    image_directory: str,
-                    loop_sleep_sec: float) -> None:
-    """
-    Starts the art button listener.
-
-    Parameters
-    ----------
-    active_artwork_file_path : str
-        Path to the active artwork file. This is the image that will be displayed in the Kiosk.
-
-    image_directory : str
-        Path to the image directory from where the images will be randomly sampled.
-
-    loop_sleep_sec : float
-        Seconds to sleep after registered button click. Risk of multiple unexpected simultaneous clicks
-        if set to low.
-
-    Returns
-    -------
-    None
-    """
-    button = ArtCronJob(
-        active_artwork_file_path=active_artwork_file_path,
-        image_directory=image_directory,
-        loop_sleep_sec=loop_sleep_sec
-    )
-    button.start()
-    
-
 def start_kiosk(active_artwork_file_path: str,
                 frame_path: str,
                 frame_inner_size: tuple) -> None:
@@ -127,17 +96,6 @@ def start_art_generator(image_directory: str,
 if __name__ == '__main__':
     config = read_yaml('config.yaml')
 
-    p_button = multiprocessing.Process(
-        target=start_artbutton,
-        args=(
-            config['artbutton']['GPIO_mode'],
-            config['artbutton']['GPIO_pinout'],
-            config['active_artwork_file_path'],
-            config['image_directory'],
-            config['artbutton']['loop_sleep_sec']
-        )
-    )
-
     p_kiosk = multiprocessing.Process(
         target=start_kiosk,
         args=(
@@ -165,12 +123,10 @@ if __name__ == '__main__':
         )
     )
 
-    p_button.start()
     p_kiosk.start()
     p_pir.start()
     p_art.start()
 
-    p_button.join()
     p_kiosk.join()
     p_pir.join()
     p_art.join()
