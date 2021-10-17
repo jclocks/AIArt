@@ -66,7 +66,7 @@ class ArtCronJob:
         )
 
     def start(self) -> None:
-       """Starts infinate loop listening to button click. When clicked, it changes the active artwork."""
+       """Starts infinite loop that monitors how long it's been since the last change, changes image if exceeds time setting."""
         while True:
             if (datetime.datetime.now() - self.time_last_image_change).seconds > self.seconds_before_artwork_change:
                 self._change_active_artwork()
