@@ -187,7 +187,7 @@ class Kiosk:
         self.panel.pack()
 
     def start(self) -> None:
-        """Starts infinate loop listening to button click. When clicked, it changes the active artwork."""
+        """Starts infinite loop with a repeated check against how long it's been since the last art change. When long enough, it changes the active artwork."""
         while True:
             if (datetime.datetime.now() - self.time_last_image_change).seconds > self.seconds_before_artwork_change:
                 self._change_active_artwork()
