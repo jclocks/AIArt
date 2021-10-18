@@ -1,5 +1,4 @@
 import yaml
-import Jetson.GPIO as GPIO
 
 
 
