@@ -1,7 +1,8 @@
 import os
 import multiprocessing
 from watchdog.events import FileSystemEventHandler, FileModifiedEvent
-
+import Tensorflow as tf
+import datetime
 
 class ArtEventHandler(FileSystemEventHandler):
     """
@@ -56,7 +57,7 @@ class ArtEventHandler(FileSystemEventHandler):
                  img_size=self.img_size,
                  checkpoint_directory=self.checkpoint_directory,
                  image_directory=self.image_directory)
-        
+
              gan.generate_images(
                  num_images=self.test_num
              )
