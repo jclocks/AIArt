@@ -3,10 +3,6 @@ import sys
 import time
 import random
 
-class self.seconds_before_artwork_change()
-    s = 3600
-class self.time_last_image_change = datetime.datetime.now()
-
 class ArtCronJob:
     """
 
@@ -67,6 +63,7 @@ class ArtCronJob:
 
     def start(self) -> None:
        """Starts infinite loop that monitors how long it's been since the last change, changes image if exceeds time setting."""
+        self.seconds_before_artwork_change = 3600
         while True:
             if (datetime.datetime.now() - self.time_last_image_change).seconds > self.seconds_before_artwork_change:
                 self._change_active_artwork()
